@@ -6,7 +6,7 @@ This web application allows you to simulate the draw for the UEFA Champions Leag
 
 ## How to Use
 
-1. Visit the [UEFA Champions League 2024-2025 Draw Simulator](https://tokgozkerem.github.io/ucl_champions_league/) website.
+1. Visit the [UEFA Champions League 2024-2025 Draw Simulator](https://tokgozkerem.github.io/ucl_2024_draw_simulator/) website.
 2. Click on the "Draw!" button to start the draw simulation.
 3. The draw will automatically generate groups and display the results on the screen.
 4. You can repeat the draw simulation as many times as you like to explore different outcomes.
