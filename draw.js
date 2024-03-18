@@ -70,14 +70,11 @@ function createTable(potName, teams) {
 
     // Create image element for logo
     const img = document.createElement("img");
-    img.onload = function () {
-      // Adjust size after image loads
-      this.width = 25;
-      this.height = 25; // Set height to 50 pixels
-    };
     img.src = `images/${teamName.replace(/\s+/g, "_").toLowerCase()}_logo.png`;
     img.alt = `${teamName} Logo`;
     img.classList.add("team-logo");
+    img.width = 25; // Set width to 25 pixels
+    img.height = 25; // Set height to 25 pixels
 
     // Create span element for team name
     const teamNameSpan = document.createElement("span");
@@ -227,6 +224,33 @@ function displayGroups() {
   // Grupları ekrana ekle
   for (let i = 0; i < groups.length; i++) {
     const groupName = `GROUP ${i + 1}`;
-    groupContainer.appendChild(createTable(groupName, groups[i]));
+    const groupTable = createTable(groupName, groups[i]); // Grup tablosunu oluştur
+    groupContainer.appendChild(groupTable); // Grup tablosunu ekrana ekle
+    displayTeams(groupTable); // Takımları göster
   }
+}
+
+// Takımları belirli aralıklarla göster
+function displayTeams(table) {
+  const teams = Array.from(table.querySelectorAll("tbody tr"));
+
+  // İlk takımı görünür yap ve diğerlerini gizle
+  teams.forEach((team, index) => {
+    if (index === 0) {
+      team.style.display = "table-row";
+    } else {
+      team.style.display = "none";
+    }
+  });
+
+  // Her bir takımı belirli aralıklarla göster
+  let index = 1;
+  const interval = setInterval(() => {
+    if (index < teams.length) {
+      teams[index].style.display = "table-row"; // Takımı görünür yap
+      index++;
+    } else {
+      clearInterval(interval); // Tüm takımlar gösterildi, aralığı temizle
+    }
+  }, 850); // Her bir takımın gösterilme zamanı (500 ms aralıkla)
 }
