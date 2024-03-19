@@ -7,7 +7,7 @@ iframe {
 }
 
 #welcomeScreen {
-  background-image: url("image/ucl_full.png");
+  background-image: url("image/background_full.png");
   background-size: cover;
   position: fixed;
   top: 0;
@@ -20,6 +20,15 @@ iframe {
   flex-direction: column;
   transition: opacity 1s ease; /* Geçiş efekti (1 saniye) */
   opacity: 1;
+}
+#contentContainer {
+  background-image: url("image/wallpaper.png");
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .welcomeLogo {
   width: 60px;
@@ -224,7 +233,7 @@ body {
   }
 
   #welcomeScreen {
-    background-image: url("image/ucl_full_mobile.png");
+    background-image: url("image/background_full.png");
     position: fixed;
   }
 
