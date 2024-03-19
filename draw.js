@@ -83,7 +83,7 @@ function createTable(potName, teams) {
     img.alt = `${teamName} Logo`;
     img.classList.add("team-logo");
     img.width = 25; // Set width to 25 pixels
-    img.height = 25; // Set height to 25 pixels
+    img.height = 29; // Set height to 25 pixels
 
     // Create span element for team name
     const teamNameSpan = document.createElement("span");
