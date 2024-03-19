@@ -220,31 +220,65 @@ body {
 
 @media (max-width: 768px) {
   body {
-    font-size: 7px; /* Metin boyutunu yarıya indirin */
+    font-size: 7.3px;
   }
+
   #welcomeScreen {
     background-image: url("image/ucl_full_mobile.png");
-    display: fixed;
+    position: fixed;
   }
+
   .ucllogo {
     display: none;
   }
-  .team-container,
+
+  .team-container {
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+
+  table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+
   #drawContainer table {
-    width: 100%;
+    margin: 0 auto;
   }
-  .team-container table {
-    width: 45%; /* Tabloların genişliğini yarıya düşürün */
-    float: left; /* Tabloları soldan sıralayın */
-    margin-right: 10px; /* Sağ tarafa boşluk ekleyin */
-    margin-bottom: 10px; /* Alt tarafta boşluk ekleyin */
+
+  th,
+  td {
+    text-align: center;
   }
-  #drawContainer table {
-    width: 90%; /* Tablonun genişliğini ayarlayın */
-    margin: 0 auto; /* Tabloyu ortala */
+
+  #groupContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 25px;
   }
-  #drawContainer th,
-  #drawContainer td {
-    text-align: center; /* Hücre içeriğini ortala */
+
+  #groupContainer table {
+    margin: 1px;
+    width: 30px;
+    color: #fff;
+    border: none;
+  }
+
+  #groupContainer tbody td span,
+  #groupContainer thead td span {
+    margin: 0 auto;
+    display: block;
+    margin: 1px 0;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+  }
+
+  #groupContainer thead td span {
+    text-align: left;
   }
 }
