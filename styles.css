@@ -1,3 +1,47 @@
+iframe {
+  position: bottom;
+  display: flex;
+  justify-content: center;
+  margin-left: 100px;
+  opacity: 1;
+}
+
+#welcomeScreen {
+  background-image: url("image/ucl_full.png");
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: opacity 1s ease; /* Geçiş efekti (1 saniye süre) */
+  opacity: 1; /* Başlangıçta tamamen opak */
+}
+.welcomeLogo {
+  width: 60px;
+  height: 60px;
+}
+h1 {
+  text-align: center;
+}
+#scrollText {
+  font-size: x-small;
+}
+.championsLeagueText {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase; /* Metni büyük harfe dönüştür */
+  color: white;
+}
+/* Diğer içeriklerin container'ı */
+#contentContainer {
+  display: none; /* İlk başta gizli */
+}
 .ucllogo {
   position: fixed;
   bottom: 50;
@@ -120,6 +164,29 @@ body {
 }
 #drawButton:hover {
   box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2); /* Parlak pembe ışık */
+}
+#nextButton {
+  background: linear-gradient(
+    to right,
+    #14223e,
+    #3968a5,
+    #78aad8
+  ); /* Gradiant geçiş */
+  border: none;
+  border-radius: 5px; /* Sert köşeler */
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+#nextButton:hover {
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2); /* Parlak pembe ışık */
+}
+#drawButton,
+#nextButton {
+  margin-right: 10px; /* Butonlar arasında 10 piksel boşluk bırak */
 }
 
 #groupContainer {
