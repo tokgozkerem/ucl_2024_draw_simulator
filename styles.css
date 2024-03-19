@@ -21,15 +21,7 @@ iframe {
   transition: opacity 1s ease; /* Geçiş efekti (1 saniye) */
   opacity: 1;
 }
-#contentContainer {
-  background-image: url("image/wallpaper.png");
-  background-size: cover;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+
 .welcomeLogo {
   width: 60px;
   height: 60px;
@@ -49,21 +41,13 @@ h1,
 #contentContainer {
   display: none;
 }
-.ucllogo {
-  position: fixed;
-  bottom: 50;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-  opacity: 0.15;
-  height: 700px;
-}
 
 body {
   background: linear-gradient(to top right, #ff13fc, #9225fe, #1938fe, #00004b);
   height: 100vh;
 }
 #drawContainer {
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -230,11 +214,6 @@ body {
 @media (max-width: 768px) {
   body {
     font-size: 7.3px;
-  }
-
-  #welcomeScreen {
-    background-image: url("image/background_full.png");
-    position: fixed;
   }
 
   .ucllogo {
