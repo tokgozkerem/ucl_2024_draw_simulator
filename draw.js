@@ -258,8 +258,8 @@ function displayTeams(table) {
   }, 2000);
 }
 
-const nextButton = document.getElementById("nextButton");
+// const nextButton = document.getElementById("nextButton");
 
-nextButton.addEventListener("click", function () {
-  window.location.href = "groupstages.html";
-});
+//nextButton.addEventListener("click", function () {
+//  window.location.href = "groupstages.html";
+// });
