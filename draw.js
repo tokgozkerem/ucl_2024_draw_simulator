@@ -45,7 +45,16 @@ const pots = {
   ],
 };
 
-// HTML içine tablo oluşturma fonksiyonu
+window.addEventListener("wheel", function (event) {
+  if (event.deltaY > 0) {
+    document.getElementById("welcomeScreen").style.opacity = 0;
+    setTimeout(function () {
+      // Hoş geldiniz ekranını tamamen kaldır ve diğer içerikleri göster
+      document.getElementById("welcomeScreen").style.display = "none";
+      document.getElementById("contentContainer").style.display = "block";
+    }, 1500); // 1.5 saniye beklet (geçiş efekti için)
+  }
+});
 function createTable(potName, teams) {
   const table = document.createElement("table");
   const tableHead = document.createElement("thead");
@@ -100,7 +109,6 @@ function createTable(potName, teams) {
   return table;
 }
 
-// Tabloları HTML'e ekleme
 const drawContainer = document.getElementById("drawContainer");
 for (const [potName, teams] of Object.entries(pots)) {
   drawContainer.appendChild(createTable(potName, teams));
@@ -204,37 +212,32 @@ function selectUniqueTeamsFromPot(pot, count, selectedTeams) {
   }
 }
 
-// Draw butonunu seç
 const drawButton = document.getElementById("drawButton");
-
-// Draw butonuna click olayı ekle
 drawButton.addEventListener("click", drawTeams);
 
 // Takımları gruplara ayır ve ekrana ekle
 function drawTeams() {
-  displayGroups(); // Grupları ekrana göster
+  displayGroups();
 }
 
 // Grupları ekranda göster
 function displayGroups() {
   // Grup container'ını seç
   const groupContainer = document.getElementById("groupContainer");
-  groupContainer.innerHTML = ""; // Grup container'ını temizle
+  groupContainer.innerHTML = "";
 
   // Grupları ekrana ekle
   for (let i = 0; i < groups.length; i++) {
     const groupName = `GROUP ${i + 1}`;
-    const groupTable = createTable(groupName, groups[i]); // Grup tablosunu oluştur
-    groupContainer.appendChild(groupTable); // Grup tablosunu ekrana ekle
-    displayTeams(groupTable); // Takımları göster
+    const groupTable = createTable(groupName, groups[i]);
+    groupContainer.appendChild(groupTable);
+    displayTeams(groupTable);
   }
 }
 
 // Takımları belirli aralıklarla göster
 function displayTeams(table) {
   const teams = Array.from(table.querySelectorAll("tbody tr"));
-
-  // İlk takımı görünür yap ve diğerlerini gizle
   teams.forEach((team, index) => {
     if (index === 0) {
       team.style.display = "table-row";
@@ -247,10 +250,16 @@ function displayTeams(table) {
   let index = 1;
   const interval = setInterval(() => {
     if (index < teams.length) {
-      teams[index].style.display = "table-row"; // Takımı görünür yap
+      teams[index].style.display = "table-row";
       index++;
     } else {
-      clearInterval(interval); // Tüm takımlar gösterildi, aralığı temizle
+      clearInterval(interval);
     }
-  }, 850); // Her bir takımın gösterilme zamanı (500 ms aralıkla)
+  }, 2000);
 }
+
+const nextButton = document.getElementById("nextButton");
+
+nextButton.addEventListener("click", function () {
+  window.location.href = "groupstages.html";
+});
