@@ -18,7 +18,7 @@ iframe {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transition: opacity 1s ease; /* Geçiş efekti (1 saniye süre) */
+  transition: opacity 1s ease; /* Geçiş efekti (1 saniye) */
   opacity: 1;
 }
 .welcomeLogo {
@@ -37,9 +37,8 @@ h1,
 #scrollText {
   font-size: x-small;
 }
-/* Diğer içeriklerin container'ı */
 #contentContainer {
-  display: none; /* İlk başta gizli */
+  display: none;
 }
 .ucllogo {
   position: fixed;
@@ -52,13 +51,7 @@ h1,
 }
 
 body {
-  background: linear-gradient(
-    to top right,
-    #ff13fc,
-    #9225fe,
-    #1938fe,
-    #00004b
-  ); /* Sol alttan sağ üste gradient geçiş */
+  background: linear-gradient(to top right, #ff13fc, #9225fe, #1938fe, #00004b);
   height: 100vh;
 }
 #drawContainer {
@@ -68,7 +61,6 @@ body {
   margin-top: 20px;
 }
 
-/* Her bir tabloya padding uygula */
 #drawContainer table {
   margin: 0 5px;
   width: 180px;
@@ -84,26 +76,22 @@ body {
   border: none;
 }
 
-/* Başlık hücreleri */
 #drawContainer th {
   background-color: #151f35;
   font-weight: bold;
 }
 
-/* Takım container'ı */
 .team-container {
   display: flex;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-/* Takım ismi */
 .team-name {
   margin-left: 5px;
   font-weight: bold;
 }
 
-/* Takım isimleri */
 #drawContainer tbody td span {
   display: block;
   padding: 3px;
@@ -114,7 +102,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-/* Pot başlıkları */
 #drawContainer thead td span {
   display: block;
   padding: 10px;
@@ -140,7 +127,7 @@ body {
   transition-duration: 0.4s;
 }
 .button:hover {
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2); /* Hafif beyaz ışık efekti */
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2);
 }
 
 #drawButton {
@@ -157,7 +144,7 @@ body {
   justify-content: space-around;
   flex-wrap: wrap;
 }
-/* Grup tablolarının stilleri */
+
 #groupContainer table {
   margin: 20px;
   border-collapse: collapse;
@@ -165,34 +152,29 @@ body {
   border: none;
 }
 
-/* Tablo başlık stil */
 #groupContainer th,
 #groupContainer td {
   text-align: center;
   border: none;
 }
 
-/* Başlık hücreleri */
 #groupContainer th {
   background-color: #151f35;
   font-weight: bold;
 }
 
-/* Takım container'ı */
 #groupContainer .team-container {
   display: flex;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-/* Takım ismi */
 #groupContainer .team-name {
   padding: 4px;
   margin-left: 5px;
   font-weight: bold;
 }
 
-/* Takım isimleri */
 #groupContainer tbody td span {
   display: block;
   padding: 3px;
@@ -203,7 +185,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-/* Pot başlıkları */
 #groupContainer thead td span {
   display: block;
   padding: 10px;
@@ -213,7 +194,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-/* Pot başlıkları */
 #pot-1-heading,
 #pot-2-heading,
 #pot-3-heading,
@@ -231,9 +211,9 @@ body {
 
 @keyframes fadeIn {
   from {
-    opacity: 0; /* Başlangıçta tamamen saydam */
+    opacity: 0;
   }
   to {
-    opacity: 1; /* Sonunda tamamen görünür hale gelsin */
+    opacity: 1;
   }
 }
