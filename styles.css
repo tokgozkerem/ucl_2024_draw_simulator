@@ -19,24 +19,23 @@ iframe {
   align-items: center;
   flex-direction: column;
   transition: opacity 1s ease; /* Geçiş efekti (1 saniye süre) */
-  opacity: 1; /* Başlangıçta tamamen opak */
+  opacity: 1;
 }
 .welcomeLogo {
   width: 60px;
   height: 60px;
 }
-h1 {
+h1,
+#scrollText,
+.championsLeagueText {
+  font-family: "Lato", "sans-serif";
   text-align: center;
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 #scrollText {
   font-size: x-small;
-}
-.championsLeagueText {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  text-transform: uppercase; /* Metni büyük harfe dönüştür */
-  color: white;
 }
 /* Diğer içeriklerin container'ı */
 #contentContainer {
@@ -48,7 +47,7 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
-  opacity: 0.15; /* İstenirse resmin şeffaflığı ayarlanabilir */
+  opacity: 0.15;
   height: 700px;
 }
 
@@ -60,213 +59,174 @@ body {
     #1938fe,
     #00004b
   ); /* Sol alttan sağ üste gradient geçiş */
-  height: 100vh; /* Ekranın tamamını kapla */
+  height: 100vh;
 }
 #drawContainer {
   display: flex;
-  justify-content: center; /* Ekranın sağ üstüne hizala */
-  align-items: flex-start; /* Ekranın üst kısmına hizala */
+  justify-content: center;
+  align-items: flex-start;
   margin-top: 20px;
 }
 
 /* Her bir tabloya padding uygula */
 #drawContainer table {
-  margin: 0 5px; /* Sağ ve sol tarafında 5px boşluk bırak */
-  width: 180px; /* Tabloların genişliğini azalt */
-  border-collapse: collapse; /* Hücre sınırlarını birleştir */
-  color: #fff; /* Beyaz yazı */
-  border: none; /* Border'ı kaldır */
+  margin: 0 5px;
+  width: 180px;
+  border-collapse: collapse;
+  color: #fff;
+  border: none;
 }
 
 /* Tablo başlık stil */
 #drawContainer th,
 #drawContainer td {
   text-align: center;
-  border: none; /* Border'ı kaldır */
+  border: none;
 }
 
 /* Başlık hücreleri */
 #drawContainer th {
-  background-color: #151f35; /* Slightly darker blue for headings */
+  background-color: #151f35;
   font-weight: bold;
 }
 
 /* Takım container'ı */
 .team-container {
-  display: flex; /* İçerikleri yatay olarak hizala */
-  align-items: center; /* İçerikleri dikey olarak ortala */
+  display: flex;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.75);
 }
 
 /* Takım ismi */
 .team-name {
-  margin-left: 5px; /* Takım ismi ile resim arasına 5px boşluk bırak */
-  font-weight: bold; /* Kalın yazı */
+  margin-left: 5px;
+  font-weight: bold;
 }
 
 /* Takım isimleri */
 #drawContainer tbody td span {
-  display: block; /* Blok element yap */
-  padding: 3px; /* Yazı etrafında boşluk bırak */
-  margin: 1px 0; /* Yukarı ve aşağıda 1px boşluk bırak */
-  color: #fff; /* Beyaz yazı */
-  font-weight: bold; /* Kalın yazı */
-  text-align: center; /* Yazıyı ortala */
-  font-family: Arial, sans-serif; /* UEFA'nın resmi web sitesinde kullanılan fonta benzer bir sans-serif font */
+  display: block;
+  padding: 3px;
+  margin: 1px 0;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Lato", sans-serif;
 }
 
 /* Pot başlıkları */
 #drawContainer thead td span {
-  display: block; /* Blok element yap */
-  padding: 10px; /* Yazı etrafında boşluk bırak */
-  color: #fff; /* Beyaz yazı */
-  font-weight: bold; /* Kalın yazı */
-  text-align: left; /* Yazıyı ortala */
-  font-family: Arial, sans-serif; /* UEFA'nın resmi web sitesinde kullanılan fonta benzer bir sans-serif font */
-}
-
-/* Pot başlıkları */
-#pot-1-heading,
-#pot-2-heading,
-#pot-3-heading,
-#pot-4-heading {
-  background: linear-gradient(
-    to right,
-    #db27fa,
-    #b826e6,
-    #9c1cc4,
-    #74189b
-  ); /* Gradiant geçiş */
+  display: block;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  text-align: left;
+  font-family: "Lato", sans-serif;
 }
 
 #buttonContainer {
   display: flex;
-  justify-content: center; /* Butonu yatayda ortala */
-  margin-top: 20px; /* Yukarıdan boşluk bırak */
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 15px;
+  transition-duration: 0.4s;
+}
+.button:hover {
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2); /* Hafif beyaz ışık efekti */
 }
 
 #drawButton {
-  background: linear-gradient(
-    to right,
-    #db27fa,
-    #b826e6,
-    #9c1cc4,
-    #74189b
-  ); /* Gradiant geçiş */
-  border: none;
-  border-radius: 5px; /* Sert köşeler */
+  background: linear-gradient(to right, #db27fa, #b826e6, #9c1cc4, #74189b);
   color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  transition-duration: 0.4s;
-}
-#drawButton:hover {
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2); /* Parlak pembe ışık */
-}
-#nextButton {
-  background: linear-gradient(
-    to right,
-    #14223e,
-    #3968a5,
-    #78aad8
-  ); /* Gradiant geçiş */
-  border: none;
-  border-radius: 5px; /* Sert köşeler */
-  color: white;
-  padding: 10px 20px;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-  transition-duration: 0.4s;
-}
-#nextButton:hover {
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.2); /* Parlak pembe ışık */
-}
-#drawButton,
-#nextButton {
-  margin-right: 10px; /* Butonlar arasında 10 piksel boşluk bırak */
 }
 
+#nextButton {
+  background: linear-gradient(to right, #14223e, #3968a5, #78aad8);
+  color: white;
+}
 #groupContainer {
   display: flex;
-  justify-content: space-around; /* Grup tablolarını eşit aralıklarla yatayda hizala */
-  flex-wrap: wrap; /* Eğer grup tabloları yatay sığmazsa, alt satıra geçsin */
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-
 /* Grup tablolarının stilleri */
 #groupContainer table {
-  margin: 20px; /* Her bir grup tablosu arasında 20px boşluk bırak */
-  width: 180px; /* Tabloların genişliğini ayarla */
-  border-collapse: collapse; /* Hücre sınırlarını birleştir */
-  color: #fff; /* Beyaz yazı */
-  border: none; /* Border'ı kaldır */
+  margin: 20px;
+  border-collapse: collapse;
+  color: #fff;
+  border: none;
 }
 
 /* Tablo başlık stil */
 #groupContainer th,
 #groupContainer td {
   text-align: center;
-  border: none; /* Border'ı kaldır */
+  border: none;
 }
 
 /* Başlık hücreleri */
 #groupContainer th {
-  background-color: #151f35; /* Slightly darker blue for headings */
+  background-color: #151f35;
   font-weight: bold;
 }
 
 /* Takım container'ı */
 #groupContainer .team-container {
-  display: flex; /* İçerikleri yatay olarak hizala */
-  align-items: center; /* İçerikleri dikey olarak ortala */
+  display: flex;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.75);
 }
 
 /* Takım ismi */
 #groupContainer .team-name {
-  margin-left: 5px; /* Takım ismi ile resim arasına 5px boşluk bırak */
-  font-weight: bold; /* Kalın yazı */
+  padding: 4px;
+  margin-left: 5px;
+  font-weight: bold;
 }
 
 /* Takım isimleri */
 #groupContainer tbody td span {
-  display: block; /* Blok element yap */
-  padding: 3px; /* Yazı etrafında boşluk bırak */
-  margin: 1px 0; /* Yukarı ve aşağıda 1px boşluk bırak */
-  color: #fff; /* Beyaz yazı */
-  font-weight: bold; /* Kalın yazı */
-  text-align: center; /* Yazıyı ortala */
-  font-family: Arial, sans-serif; /* UEFA'nın resmi web sitesinde kullanılan fonta benzer bir sans-serif font */
+  display: block;
+  padding: 3px;
+  margin: 1px 0;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  font-family: "Lato", sans-serif;
 }
 
 /* Pot başlıkları */
 #groupContainer thead td span {
-  display: block; /* Blok element yap */
-  padding: 10px; /* Yazı etrafında boşluk bırak */
-  color: #fff; /* Beyaz yazı */
-  font-weight: bold; /* Kalın yazı */
-  text-align: left; /* Yazıyı ortala */
-  font-family: Arial, sans-serif; /* UEFA'nın resmi web sitesinde kullanılan fonta benzer bir sans-serif font */
+  display: block;
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  text-align: left;
+  font-family: "Lato", sans-serif;
 }
 
 /* Pot başlıkları */
+#pot-1-heading,
+#pot-2-heading,
+#pot-3-heading,
+#pot-4-heading,
 #groupContainer #group-1-heading,
 #groupContainer #group-2-heading,
 #groupContainer #group-3-heading,
 #groupContainer #group-4-heading {
-  background: linear-gradient(
-    to right,
-    #db27fa,
-    #b826e6,
-    #9c1cc4,
-    #74189b
-  ); /* Gradiant geçiş */
+  background: linear-gradient(to right, #db27fa, #b826e6, #9c1cc4, #74189b);
 }
 .team-container {
-  opacity: 0; /* İlk başta takım container'ını gizle */
-  animation: fadeIn 1s forwards; /* fadeIn adında bir animasyon kullan, 1 saniyede tamamlansın */
+  opacity: 0;
+  animation: fadeIn 1s forwards;
 }
 
 @keyframes fadeIn {
