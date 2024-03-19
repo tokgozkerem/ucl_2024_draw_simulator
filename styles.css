@@ -217,3 +217,34 @@ body {
     opacity: 1;
   }
 }
+
+@media (max-width: 768px) {
+  body {
+    font-size: 7px; /* Metin boyutunu yarıya indirin */
+  }
+  #welcomeScreen {
+    background-image: url("image/ucl_full_mobile.png");
+    display: fixed;
+  }
+  .ucllogo {
+    display: none;
+  }
+  .team-container,
+  #drawContainer table {
+    width: 100%;
+  }
+  .team-container table {
+    width: 45%; /* Tabloların genişliğini yarıya düşürün */
+    float: left; /* Tabloları soldan sıralayın */
+    margin-right: 10px; /* Sağ tarafa boşluk ekleyin */
+    margin-bottom: 10px; /* Alt tarafta boşluk ekleyin */
+  }
+  #drawContainer table {
+    width: 90%; /* Tablonun genişliğini ayarlayın */
+    margin: 0 auto; /* Tabloyu ortala */
+  }
+  #drawContainer th,
+  #drawContainer td {
+    text-align: center; /* Hücre içeriğini ortala */
+  }
+}
