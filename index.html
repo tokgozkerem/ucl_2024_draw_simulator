@@ -6,17 +6,42 @@
     <title>Champions League</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/png" href="image/uclicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <img src="image/ucl-logo.png" class="ucllogo" alt="UCL Logo" />
-    <div class="background"></div>
-    <div id="drawContainer"></div>
-    <!-- Pot tablolarının yerleştirileceği div -->
-    <div id="buttonContainer">
-      <button id="drawButton">Draw!</button>
+    <div id="welcomeScreen">
+      <img src="image/ucl-logo.png" alt="UCL Logo" class="welcomeLogo" />
+      <h1>
+        <span class="championsLeagueText">Welcome to the 2024-25</span>
+        <br />
+        <span class="championsLeagueText">UEFA Champions League</span>
+        <br />
+        <span class="championsLeagueText">Draw simulator!</span>
+      </h1>
+      <p class="championsLeagueText" id="scrollText">Scroll down to continue</p>
+      <iframe
+        src="https://ghbtns.com/github-btn.html?user=tokgozkerem&repo=ucl_2024_draw_simulator&type=star&count=false"
+        frameborder="0"
+        scrolling="0"
+        width="150"
+        height="20"
+        title="GitHub"
+      ></iframe>
     </div>
-    <!-- Draw butonu -->
-    <div id="groupContainer"></div>
-    <script src="draw.js"></script>
+
+    <div id="contentContainer">
+      <img src="image/ucl-logo.png" class="ucllogo" alt="UCL Logo" />
+      <div class="background"></div>
+      <div id="drawContainer"></div>
+      <div id="buttonContainer">
+        <button id="drawButton">Draw!</button>
+        <button id="nextButton">Group Stages</button>
+      </div>
+      <div id="groupContainer"></div>
+      <script src="draw.js"></script>
+    </div>
   </body>
 </html>
