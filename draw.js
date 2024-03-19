@@ -45,21 +45,23 @@ const pots = {
   ],
 };
 
-window.addEventListener("wheel", function (event) {
-  if (event.deltaY > 0) {
+window.addEventListener("wheel", handleScroll);
+window.addEventListener("touchmove", handleScroll);
+
+function handleScroll(event) {
+  if (event.deltaY > 0 || event.touches[0].clientY > 0) {
     document.getElementById("welcomeScreen").style.opacity = 0;
     setTimeout(function () {
-      // Hoş geldiniz ekranını tamamen kaldır ve diğer içerikleri göster
       document.getElementById("welcomeScreen").style.display = "none";
       document.getElementById("contentContainer").style.display = "block";
-    }, 1500); // 1.5 saniye beklet (geçiş efekti için)
+    }, 1500);
   }
-});
+}
+
 function createTable(potName, teams) {
   const table = document.createElement("table");
   const tableHead = document.createElement("thead");
   const tableBody = document.createElement("tbody");
-
   const headRow = document.createElement("tr");
   const headCell = document.createElement("td");
   const headSpan = document.createElement("span");
@@ -72,35 +74,23 @@ function createTable(potName, teams) {
   teams.forEach((teamName) => {
     const bodyRow = document.createElement("tr");
     const bodyCell = document.createElement("td");
-
-    // Create div container for logo and team name
     const teamContainer = document.createElement("div");
     teamContainer.classList.add("team-container");
 
-    // Create image element for logo
     const img = document.createElement("img");
     img.src = `images/${teamName.replace(/\s+/g, "_").toLowerCase()}_logo.png`;
     img.alt = `${teamName} Logo`;
     img.classList.add("team-logo");
-    img.width = 25; // Set width to 25 pixels
-    img.height = 29; // Set height to 25 pixels
+    img.width = 25;
+    img.height = 29;
 
-    // Create span element for team name
     const teamNameSpan = document.createElement("span");
     teamNameSpan.textContent = teamName.toUpperCase();
     teamNameSpan.classList.add("team-name");
-
-    // Append image and team name to team container
     teamContainer.appendChild(img);
     teamContainer.appendChild(teamNameSpan);
-
-    // Append team container to body cell
     bodyCell.appendChild(teamContainer);
-
-    // Append body cell to body row
     bodyRow.appendChild(bodyCell);
-
-    // Append body row to table body
     tableBody.appendChild(bodyRow);
   });
 
@@ -114,7 +104,6 @@ for (const [potName, teams] of Object.entries(pots)) {
   drawContainer.appendChild(createTable(potName, teams));
 }
 
-// Yeni tablo oluşturma fonksiyonu
 function createLeftPanelTable(teams) {
   const table = document.createElement("table");
   const tableBody = document.createElement("tbody");
@@ -123,34 +112,23 @@ function createLeftPanelTable(teams) {
     const bodyRow = document.createElement("tr");
     const bodyCell = document.createElement("td");
 
-    // Create div container for logo and team name
     const teamContainer = document.createElement("div");
     teamContainer.classList.add("team-container");
 
-    // Create image element for logo
     const img = document.createElement("img");
     img.src = `images/${teamName.replace(/\s+/g, "_").toLowerCase()}_logo.png`;
     img.alt = `${teamName} Logo`;
     img.classList.add("team-logo");
-    img.width = 25;
+    img.width = 32;
     img.height = 25;
 
-    // Create span element for team name
     const teamNameSpan = document.createElement("span");
     teamNameSpan.textContent = teamName.toUpperCase();
     teamNameSpan.classList.add("team-name");
-
-    // Append image and team name to team container
     teamContainer.appendChild(img);
     teamContainer.appendChild(teamNameSpan);
-
-    // Append team container to body cell
     bodyCell.appendChild(teamContainer);
-
-    // Append body cell to body row
     bodyRow.appendChild(bodyCell);
-
-    // Append body row to table body
     tableBody.appendChild(bodyRow);
   });
 
@@ -159,7 +137,6 @@ function createLeftPanelTable(teams) {
 }
 const groups = [[], [], [], []];
 
-// Grup seçimlerini tanımla
 const selections = [
   [
     { pot: "POT 1", count: 3 },
@@ -187,7 +164,6 @@ const selections = [
   ],
 ];
 
-// Grup seçimlerini gerçekleştir
 for (let i = 0; i < selections.length; i++) {
   selectTeams(groups[i], selections[i]);
 }
@@ -208,25 +184,20 @@ function selectUniqueTeamsFromPot(pot, count, selectedTeams) {
     }
     const teamIndex = Math.floor(Math.random() * pot.length);
     selectedTeams.push(pot[teamIndex]);
-    pot.splice(teamIndex, 1); // Seçilen takımı listeden çıkar
+    pot.splice(teamIndex, 1);
   }
 }
 
 const drawButton = document.getElementById("drawButton");
 drawButton.addEventListener("click", drawTeams);
 
-// Takımları gruplara ayır ve ekrana ekle
 function drawTeams() {
   displayGroups();
 }
 
-// Grupları ekranda göster
 function displayGroups() {
-  // Grup container'ını seç
   const groupContainer = document.getElementById("groupContainer");
   groupContainer.innerHTML = "";
-
-  // Grupları ekrana ekle
   for (let i = 0; i < groups.length; i++) {
     const groupName = `GROUP ${i + 1}`;
     const groupTable = createTable(groupName, groups[i]);
@@ -235,7 +206,6 @@ function displayGroups() {
   }
 }
 
-// Takımları belirli aralıklarla göster
 function displayTeams(table) {
   const teams = Array.from(table.querySelectorAll("tbody tr"));
   teams.forEach((team, index) => {
@@ -245,8 +215,6 @@ function displayTeams(table) {
       team.style.display = "none";
     }
   });
-
-  // Her bir takımı belirli aralıklarla göster
   let index = 1;
   const interval = setInterval(() => {
     if (index < teams.length) {
