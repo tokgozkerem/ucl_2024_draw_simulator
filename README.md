@@ -17,6 +17,10 @@ This web application allows you to simulate the draw for the UEFA Champions Leag
 - Simple and intuitive interface.
 - Realistic group formations and team distributions.
 
+# Update 1
+
+- Added group stage functionality to simulate matches and calculate league standings for 36 teams.
+
 ## Technologies Used
 
 - HTML
