@@ -135,34 +135,7 @@ function createLeftPanelTable(teams) {
   table.appendChild(tableBody);
   return table;
 }
-const groups = [[], [], [], []];
-
-const selections = [
-  [
-    { pot: "POT 1", count: 3 },
-    { pot: "POT 2", count: 2 },
-    { pot: "POT 3", count: 2 },
-    { pot: "POT 4", count: 2 },
-  ],
-  [
-    { pot: "POT 1", count: 2 },
-    { pot: "POT 2", count: 3 },
-    { pot: "POT 3", count: 2 },
-    { pot: "POT 4", count: 2 },
-  ],
-  [
-    { pot: "POT 1", count: 2 },
-    { pot: "POT 2", count: 2 },
-    { pot: "POT 3", count: 3 },
-    { pot: "POT 4", count: 2 },
-  ],
-  [
-    { pot: "POT 1", count: 2 },
-    { pot: "POT 2", count: 2 },
-    { pot: "POT 3", count: 2 },
-    { pot: "POT 4", count: 3 },
-  ],
-];
+import { groups, selections } from "./groups.js";
 
 for (let i = 0; i < selections.length; i++) {
   selectTeams(groups[i], selections[i]);
@@ -226,8 +199,8 @@ function displayTeams(table) {
   }, 2000);
 }
 
-// const nextButton = document.getElementById("nextButton");
+const nextButton = document.getElementById("nextButton");
 
-//nextButton.addEventListener("click", function () {
-//  window.location.href = "groupstages.html";
-// });
+nextButton.addEventListener("click", function () {
+  window.location.href = "groupstage.html";
+});
