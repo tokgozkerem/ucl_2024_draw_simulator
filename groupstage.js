@@ -56,7 +56,7 @@ class MatchHistory {
   }
 }
 
-import { groups } from "./groups.js";
+const groups = JSON.parse(localStorage.getItem("groups"));
 console.log(groups);
 
 function simulateTournament(groups) {
@@ -148,7 +148,9 @@ function showTournamentResultsAsHTML(
     tableHTML += `
       <tr class="${rowClass}">
         <td>${position}</td>
-        <td>${img.outerHTML} ${team}</td> <!-- Logo ve takım adı eklendi -->
+        <td>${
+          img.outerHTML
+        } ${team.toUpperCase()}</td> <!-- Logo ve takım adı eklendi -->
         <td>${playedGames}</td>
         <td>${wins}</td>
         <td>${draws}</td>
@@ -175,3 +177,73 @@ showTournamentResultsAsHTML(
   tournamentResults,
   matchHistory
 );
+matchHistory.showMatchHistory();
+
+function showMatchHistoryForTeam(containerId, matchHistory) {
+  const container = document.getElementById(containerId);
+
+  groups.forEach((group, groupIndex) => {
+    const groupContainerId = `${containerId}-group-${groupIndex + 1}`;
+
+    const groupDiv = document.createElement("div");
+    groupDiv.id = groupContainerId;
+    groupDiv.classList.add("group-container");
+    container.appendChild(groupDiv);
+
+    const groupHeader = document.createElement("h2");
+    groupHeader.textContent = `GROUP ${groupIndex + 1}`;
+    groupHeader.classList.add("group-header");
+    groupDiv.appendChild(groupHeader);
+
+    group.forEach((team) => {
+      const matches = matchHistory.getMatchHistory(team);
+
+      const teamContainer = document.createElement("div"); // Takım resmi ve başlığı içeren div
+      teamContainer.classList.add("team-container");
+
+      // Takım logosunu oluştur
+      const teamLogo = document.createElement("img");
+      teamLogo.src = `images/${team
+        .replace(/\s+/g, "_")
+        .toLowerCase()}_logo.png`;
+      teamLogo.alt = `${team} Logo`;
+      teamLogo.classList.add("team-logo");
+
+      // Takım başlığını oluştur
+      const teamHeader = document.createElement("h3");
+      teamHeader.textContent = team;
+      teamHeader.classList.add("team-header");
+
+      // Takım logosu ve başlığını içeren div'i grupDiv'e ekle
+      teamContainer.appendChild(teamLogo);
+      teamContainer.appendChild(teamHeader);
+      groupDiv.appendChild(teamContainer);
+
+      const table = document.createElement("table");
+      table.classList.add("match-table");
+      const tableHeader = document.createElement("tr");
+      const opponentHeader = document.createElement("th");
+      opponentHeader.textContent = "OPPONENT";
+      const resultHeader = document.createElement("th");
+      resultHeader.textContent = "RESULT";
+      tableHeader.appendChild(opponentHeader);
+      tableHeader.appendChild(resultHeader);
+      table.appendChild(tableHeader);
+
+      matches.forEach((match) => {
+        const row = document.createElement("tr");
+        const opponentCell = document.createElement("td");
+        opponentCell.textContent = match.opponent;
+        const resultCell = document.createElement("td");
+        resultCell.textContent = match.result;
+        row.appendChild(opponentCell);
+        row.appendChild(resultCell);
+        table.appendChild(row);
+      });
+
+      groupDiv.appendChild(table);
+    });
+  });
+}
+
+showMatchHistoryForTeam("match-history-container", matchHistory);

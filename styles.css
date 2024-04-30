@@ -286,7 +286,7 @@ body {
 }
 
 #tournament-results-table th {
-  background-color: #f2f2f2;
+  background: #d901ffb3;
   color: #333;
   font-weight: bold;
   text-align: left;
@@ -305,26 +305,70 @@ body {
 }
 
 .team-rank-green {
-  background-color: rgba(0, 128, 0, 0.8) !important;
+  background-color: rgba(0, 255, 38, 0.565) !important;
+  font-weight: bold;
+  text-align: left;
+  font-family: "Lato", sans-serif;
   color: white !important;
 }
 
 .team-rank-yellow-orange {
-  background-color: rgba(255, 204, 0, 0.8) !important;
+  background-color: rgba(255, 154, 0, 0.75) !important;
+  color: white !important;
+  font-weight: bold;
+  text-align: left;
+  font-family: "Lato", sans-serif;
 }
 
 .team-rank-red {
-  background-color: rgba(255, 0, 0, 0.8) !important;
+  background-color: rgba(255, 0, 0, 0.75) !important;
   color: white !important;
+  font-weight: bold;
+  text-align: left;
+  font-family: "Lato", sans-serif;
 }
 
-#additional-info {
-  font-family: "Lato", "sans-serif";
-  text-align: center;
+.group-container {
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  max-width: 500px; /* Tablo genişliğini sınırla */
+  display: inline-block; /* Blok düzenini kaldır, yan yana sıralanmasını sağla */
+}
+.team-logo {
+  width: 35px;
+  height: 35px;
+}
+/* Grup başlığı */
+.group-header {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+}
+
+/* Takım başlığı */
+.team-header {
+  font-size: 1em;
+  margin-bottom: 3px;
   color: white;
-  font-weight: 400;
-  text-transform: uppercase;
-  position: absolute;
-  top: 50%;
-  left: 40%;
+}
+
+/* Maç tablosu */
+.match-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto; /* Yatay kaydırmayı etkinleştir */
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+}
+
+/* Tablo başlığı */
+.match-table th {
+  padding: 5px;
+  text-align: left;
+}
+
+/* Tablo hücresi */
+.match-table td {
+  padding: 5px;
+  font-size: 0.9em; /* Hücre metin boyutunu küçült */
 }

@@ -1,3 +1,6 @@
+import groups from "./groups.js";
+localStorage.setItem("groups", JSON.stringify(groups));
+console.log(groups);
 const pots = {
   "POT 1": [
     "Man City",
@@ -135,32 +138,6 @@ function createLeftPanelTable(teams) {
   table.appendChild(tableBody);
   return table;
 }
-import { groups, selections } from "./groups.js";
-
-for (let i = 0; i < selections.length; i++) {
-  selectTeams(groups[i], selections[i]);
-}
-
-console.log(groups);
-
-function selectTeams(group, selections) {
-  for (const selection of selections) {
-    selectUniqueTeamsFromPot(pots[selection.pot], selection.count, group);
-  }
-}
-
-function selectUniqueTeamsFromPot(pot, count, selectedTeams) {
-  for (let i = 0; i < count; i++) {
-    if (pot.length === 0) {
-      console.error("Hata: Pot boş.");
-      return;
-    }
-    const teamIndex = Math.floor(Math.random() * pot.length);
-    selectedTeams.push(pot[teamIndex]);
-    pot.splice(teamIndex, 1);
-  }
-}
-
 const drawButton = document.getElementById("drawButton");
 drawButton.addEventListener("click", drawTeams);
 

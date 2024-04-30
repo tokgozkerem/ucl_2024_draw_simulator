@@ -92,5 +92,5 @@ function selectUniqueTeamsFromPot(pot, count, selectedTeams) {
     pot.splice(teamIndex, 1);
   }
 }
-
-export { groups, selections, selectTeams, selectUniqueTeamsFromPot };
+export default groups;
+export { pots, selections, selectTeams, selectUniqueTeamsFromPot };
