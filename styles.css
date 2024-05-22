@@ -44,6 +44,13 @@ h1,
 
 body {
   background: linear-gradient(to top right, #ff13fc, #9225fe, #1938fe, #00004b);
+  font-family: "Lato", sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   height: 100vh;
 }
 #drawContainer {
@@ -260,7 +267,7 @@ body {
     margin: 0 auto;
     display: block;
     margin: 1px 0;
-    color: #fff;
+    color: #ffffff;
     font-weight: bold;
     text-align: center;
     font-family: "Lato", sans-serif;
@@ -272,40 +279,48 @@ body {
 }
 
 #tournament-results-table {
-  width: 30%;
   border-collapse: collapse;
-  margin: 20px 0;
-  float: left;
-  border: 2px solid black;
+  width: 65%;
+  background-color: white;
+  margin: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 #tournament-results-table th,
 #tournament-results-table td {
-  padding: 8px;
-  border: 1px solid black;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
 }
 
 #tournament-results-table th {
   background: #d901ffb3;
-  color: #333;
+  color: white;
   font-weight: bold;
   text-align: left;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
 }
 
 #tournament-results-table td:first-child {
-  width: 2%;
+  width: 5%;
 }
 
 #tournament-results-table td:nth-child(2) {
   width: 60%;
 }
-
+#tournament-results-table td:nth-child(2) img {
+  width: 24px;
+  height: 24px;
+}
 #tournament-results-table td:nth-child(3) {
   width: 5%;
 }
 
 .team-rank-green {
-  background-color: rgba(0, 255, 38, 0.565) !important;
+  background-color: rgba(0, 255, 38, 0.765) !important;
   font-weight: bold;
   text-align: left;
   font-family: "Lato", sans-serif;
@@ -313,7 +328,7 @@ body {
 }
 
 .team-rank-yellow-orange {
-  background-color: rgba(255, 154, 0, 0.75) !important;
+  background-color: rgba(255, 154, 0, 0.765) !important;
   color: white !important;
   font-weight: bold;
   text-align: left;
@@ -321,7 +336,7 @@ body {
 }
 
 .team-rank-red {
-  background-color: rgba(255, 0, 0, 0.75) !important;
+  background-color: rgba(255, 0, 0, 0.765) !important;
   color: white !important;
   font-weight: bold;
   text-align: left;
@@ -330,45 +345,61 @@ body {
 
 .group-container {
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #d901ffb3;
   padding: 5px;
-  max-width: 500px; /* Tablo genişliğini sınırla */
-  display: inline-block; /* Blok düzenini kaldır, yan yana sıralanmasını sağla */
-}
-.team-logo {
-  width: 35px;
-  height: 35px;
-}
-/* Grup başlığı */
-.group-header {
-  font-size: 1.2em;
-  margin-bottom: 5px;
+  max-width: 250px;
+  display: inline-block;
+  background-color: #d901ffb3;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
-/* Takım başlığı */
-.team-header {
-  font-size: 1em;
-  margin-bottom: 3px;
+.team-logo {
+  width: 24px; /* Logo boyutunu küçült */
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 5px;
+  border-radius: 50%; /* Dairesel logo */
+}
+
+.group-header {
+  font-size: 1em; /* Font boyutunu küçült */
+  margin-bottom: 5px;
+  text-align: center;
+  font-weight: bold;
   color: white;
 }
 
-/* Maç tablosu */
+.team-header {
+  font-size: 0.9em; /* Font boyutunu küçült */
+  margin-bottom: 3px;
+  color: white;
+  background-color: #696969; /* Arka plan rengi ekle */
+  padding: 3px 5px;
+  border-radius: 4px;
+}
+
 .match-table {
   width: 100%;
   border-collapse: collapse;
-  overflow-x: auto; /* Yatay kaydırmayı etkinleştir */
   background: rgba(0, 0, 0, 0.75);
   color: white;
+  font-size: 0.8em; /* Font boyutunu küçült */
 }
 
-/* Tablo başlığı */
 .match-table th {
-  padding: 5px;
+  padding: 3px 5px; /* Hücre içi dolgu alanını küçült */
   text-align: left;
+  background: #333; /* Başlık hücrelerinin arka plan rengi */
+  font-weight: normal; /* Font ağırlığını normal yap */
 }
 
-/* Tablo hücresi */
 .match-table td {
-  padding: 5px;
-  font-size: 0.9em; /* Hücre metin boyutunu küçült */
+  padding: 3px 5px;
+  font-size: 0.8em;
+  border-top: 1px solid #555;
+}
+
+.match-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }

@@ -83,7 +83,7 @@ function createTable(potName, teams) {
     const img = document.createElement("img");
     img.src = `images/${teamName.replace(/\s+/g, "_").toLowerCase()}_logo.png`;
     img.alt = `${teamName} Logo`;
-    img.classList.add("team-logo");
+    img.classList.add("groups-team-logo");
     img.width = 25;
     img.height = 29;
 
@@ -121,7 +121,7 @@ function createLeftPanelTable(teams) {
     const img = document.createElement("img");
     img.src = `images/${teamName.replace(/\s+/g, "_").toLowerCase()}_logo.png`;
     img.alt = `${teamName} Logo`;
-    img.classList.add("team-logo");
+    img.classList.add("groups-team-logo");
     img.width = 32;
     img.height = 25;
 
