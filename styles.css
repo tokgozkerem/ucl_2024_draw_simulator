@@ -355,15 +355,15 @@ body {
 }
 
 .team-logo {
-  width: 24px; /* Logo boyutunu küçült */
+  width: 24px;
   height: 24px;
   vertical-align: middle;
   margin-right: 5px;
-  border-radius: 50%; /* Dairesel logo */
+  border-radius: 50%;
 }
 
 .group-header {
-  font-size: 1em; /* Font boyutunu küçült */
+  font-size: 1em;
   margin-bottom: 5px;
   text-align: center;
   font-weight: bold;
@@ -371,10 +371,10 @@ body {
 }
 
 .team-header {
-  font-size: 0.9em; /* Font boyutunu küçült */
+  font-size: 0.9em;
   margin-bottom: 3px;
   color: white;
-  background-color: #696969; /* Arka plan rengi ekle */
+  background-color: #696969;
   padding: 3px 5px;
   border-radius: 4px;
 }
@@ -384,14 +384,14 @@ body {
   border-collapse: collapse;
   background: rgba(0, 0, 0, 0.75);
   color: white;
-  font-size: 0.8em; /* Font boyutunu küçült */
+  font-size: 0.8em;
 }
 
 .match-table th {
-  padding: 3px 5px; /* Hücre içi dolgu alanını küçült */
+  padding: 3px 5px;
   text-align: left;
-  background: #333; /* Başlık hücrelerinin arka plan rengi */
-  font-weight: normal; /* Font ağırlığını normal yap */
+  background: #333;
+  font-weight: normal;
 }
 
 .match-table td {
